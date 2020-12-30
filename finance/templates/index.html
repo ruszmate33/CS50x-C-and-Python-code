@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+        <table class=table>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Current price</th>
+                <th>Total value</th>
+            </tr>
+            {% for stock in stockInfo %}
+            <tr>
+                {% for value in stock.values() %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td>{{ cashTotal }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=bold>{{ cashBalance }}</td>
+            </tr>
+        </table>
+{% endblock %}
